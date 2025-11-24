@@ -176,11 +176,13 @@ export default function LoginPage() {
                   ಸುರಕ್ಷಿತವಾಗಿ ಲಾಗಿನ್ ಆಗಲು ನಿಮ್ಮ ಮುಖ ID ಬಳಸಿ
                 </p>
                 <button
-                  onClick={handleBiometricLogin}
-                  className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-md font-semibold hover:scale-105 transition"
-                >
-                  ಪ್ರಮಾಣೀಕರಿಸಿ
-                </button>
+  onClick={() => navigate("/biometric-login")}
+   className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white px-6 py-2 rounded-md font-semibold hover:scale-105 transition"
+>
+  ಪ್ರಮಾಣೀಕರಿಸಿ
+</button>
+
+
               </div>
             )}
 
@@ -222,5 +224,3 @@ export default function LoginPage() {
     </div>
   );
 }
-
-

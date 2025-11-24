@@ -1,0 +1,316 @@
+/* -----------------------------
+   GLOBAL STYLES
+------------------------------ */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f3f7fa;
+}
+
+/* Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* Grid of Cards */
+.login-wrapper {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.login-grid {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* -----------------------------
+   CARD DESIGN
+------------------------------ */
+
+.login-card {
+  width: 360px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Card Content */
+.card-content {
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-green {
+  background: #d9f7e6;
+}
+
+.icon-blue {
+  background: #d6e8ff;
+}
+
+.icon-large {
+  width: 38px;
+  height: 38px;
+  color: #2a2a2a;
+}
+
+.card-title {
+  margin: 10px 0 5px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* -----------------------------
+   FACE LOGIN CIRCLE
+------------------------------ */
+
+.face-recognition-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.face-recognition-circle {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  border: 3px solid #67c66a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease-in-out;
+}
+
+.face-recognition-circle.active {
+  border-color: #198754;
+  box-shadow: 0 0 20px rgba(0, 128, 0, 0.3);
+}
+
+.camera-icon {
+  width: 45px;
+  height: 45px;
+  color: #198754;
+}
+
+/* -----------------------------
+   BUTTONS
+------------------------------ */
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 12px;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.btn-green {
+  background: #198754;
+  color: white;
+}
+
+.btn-green:hover {
+  background: #146c43;
+}
+
+.btn-scanning {
+  background: #86c78e !important;
+  cursor: not-allowed;
+}
+
+.btn-login-extra {
+  background: #0d6efd;
+  color: white;
+}
+
+.btn-login-extra:hover {
+  background: #0a58ca;
+}
+
+/* -----------------------------
+   FOOTER
+------------------------------ */
+
+.footer {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #888;
+}
+
+/* -----------------------------
+   MODAL (Face Recognition Window)
+------------------------------ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 450px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.video-wrapper {
+  width: 100%;
+  position: relative;
+  margin-top: 10px;
+}
+
+.modal-video {
+  width: 100%;
+  border-radius: 14px;
+  background: #000;
+}
+
+/* -----------------------------
+   SCAN ANIMATION
+------------------------------ */
+
+.scan-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.scan-line {
+  width: 100%;
+  height: 3px;
+  background: #00ff66;
+  position: absolute;
+  animation: scanMove 2s linear infinite;
+}
+
+.scan-corners .corner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid #00ff66;
+  position: absolute;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.scan-progress {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+}
+
+/* -----------------------------
+   ANIMATIONS
+------------------------------ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scanMove {
+  0% {
+    top: 5%;
+  }
+  100% {
+    top: 95%;
+  }
+}
